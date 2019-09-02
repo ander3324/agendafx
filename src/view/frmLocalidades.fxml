@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="335.0" prefWidth="405.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controller.FrmLocalidadesController">
+   <children>
+      <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="14.0" prefHeight="363.0" prefWidth="405.0" text="Seleccione la Provincia para filtrar:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="295.0" prefWidth="403.0">
+               <children>
+                  <ComboBox fx:id="cmbProvincias" layoutX="36.0" layoutY="14.0" onAction="#cmbProvincias_OnAction" prefHeight="26.0" prefWidth="342.0" />
+                  <TableView fx:id="tbvLocalidades" layoutX="14.0" layoutY="55.0" prefHeight="200.0" prefWidth="385.0">
+                    <columns>
+                        <TableColumn prefWidth="90.0" text="Cod. Postal" >
+                            <cellValueFactory>
+                                <javafx.scene.control.cell.PropertyValueFactory property="cpa" /> 
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="175.0" text="Localidad" >
+                            <cellValueFactory>
+                                <javafx.scene.control.cell.PropertyValueFactory property="localidad" /> 
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="119.0" text="Provincia" >
+                            <cellValueFactory>
+                                <javafx.scene.control.cell.PropertyValueFactory property="provincia" /> 
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                  </TableView>
+                  <Button fx:id="btnGuardar" defaultButton="true" layoutX="210.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnGuardar_OnAction" text="Guardar" />
+                  <Button fx:id="btnCancelar" cancelButton="true" layoutX="288.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnCancelar_OnAction" text="Cancelar" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

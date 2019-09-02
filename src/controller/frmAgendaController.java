@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import java.net.URL;
@@ -20,13 +19,12 @@ import model.Contacto;
 import repository.ContactoRepo;
 import util.ventanasUtil;
 
-
 /**
  *
  * @author ander
  */
 public class frmAgendaController implements Initializable {
-    
+
     private Label label;
     @FXML
     private MenuItem mniNuevoContacto;
@@ -56,21 +54,21 @@ public class frmAgendaController implements Initializable {
     private Button btnEliminar;
     @FXML
     private TableView<Contacto> tbvContactos;
-    
+
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         cargarContactos();
-    }    
-    
+    }
+
     void cargarContactos() {
         ContactoRepo repo = new ContactoRepo();
-        for(Contacto c : repo.getContactos()) {
+        for (Contacto c : repo.getContactos()) {
             tbvContactos.getItems().add(c);
         }
     }
@@ -96,6 +94,7 @@ public class frmAgendaController implements Initializable {
 
     @FXML
     private void mniModificarLocalidad_OnAction(ActionEvent event) {
+        ventanasUtil.abrirDialogo(btnNuevo.getScene().getWindow(), "/view/frmLocalidades.fxml", "Listado de Localidades");
     }
 
     @FXML
@@ -131,5 +130,5 @@ public class frmAgendaController implements Initializable {
     @FXML
     private void btnEliminar_OnAction(ActionEvent event) {
     }
-    
+
 }

@@ -53,7 +53,7 @@ public class Provincia {
     
     @Override
     public String toString() {
-        return nro + " - " + provincia;
+        return  provincia;
     }
     
     
