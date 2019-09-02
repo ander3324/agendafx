@@ -29,7 +29,7 @@ public class Contacto {
     }
 
     public String getApellido() {
-        return apellido;
+        return apellido + ", " + nombre;
     }
 
     public void setApellido(String apellido) {
@@ -45,7 +45,7 @@ public class Contacto {
     }
 
     public String getDomicilio() {
-        return domicilio;
+        return domicilio + " - " + localidad.getLocalidad() + " / " + localidad.getProvincia().getProvincia();
     }
 
     public void setDomicilio(String domicilio) {

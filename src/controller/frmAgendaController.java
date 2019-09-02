@@ -16,6 +16,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import model.Contacto;
+import repository.ContactoRepo;
 import util.ventanasUtil;
 
 
@@ -53,7 +55,7 @@ public class frmAgendaController implements Initializable {
     @FXML
     private Button btnEliminar;
     @FXML
-    private TableView<?> tbvContactos;
+    private TableView<Contacto> tbvContactos;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -63,7 +65,15 @@ public class frmAgendaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        cargarContactos();
     }    
+    
+    void cargarContactos() {
+        ContactoRepo repo = new ContactoRepo();
+        for(Contacto c : repo.getContactos()) {
+            tbvContactos.getItems().add(c);
+        }
+    }
 
     @FXML
     private void mniNuevoContacto_OnAction(ActionEvent event) {
@@ -115,6 +125,7 @@ public class frmAgendaController implements Initializable {
 
     @FXML
     private void btnEditar_OnAction(ActionEvent event) {
+        cargarContactos();
     }
 
     @FXML

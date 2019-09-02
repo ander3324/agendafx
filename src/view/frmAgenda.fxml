@@ -77,11 +77,31 @@
          <center>
             <TableView fx:id="tbvContactos" prefHeight="309.0" prefWidth="793.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="75.0" text="Nro" />
-                <TableColumn prefWidth="193.0" text="Contacto" />
-                  <TableColumn prefWidth="181.0" text="Domicilio" />
-                  <TableColumn prefWidth="107.0" text="Telefono" />
-                  <TableColumn prefWidth="235.0" text="Observaciones" />
+                  <TableColumn prefWidth="75.0" text="Nro" >
+                      <cellValueFactory>
+                          <javafx.scene.control.cell.PropertyValueFactory property="nro" /> 
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="193.0" text="Contacto" >
+                      <cellValueFactory>
+                          <javafx.scene.control.cell.PropertyValueFactory property="apellido" />
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="181.0" text="Domicilio" >
+                      <cellValueFactory>
+                          <javafx.scene.control.cell.PropertyValueFactory property="domicilio" /> 
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="107.0" text="Telefono" >
+                      <cellValueFactory>
+                          <javafx.scene.control.cell.PropertyValueFactory property="telefono" /> 
+                      </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="235.0" text="Observaciones" >
+                      <cellValueFactory>
+                          <javafx.scene.control.cell.PropertyValueFactory property="obs" /> 
+                      </cellValueFactory>
+                  </TableColumn>
               </columns>
             </TableView>
          </center>
