@@ -87,10 +87,10 @@ public class ContactoRepo {
                         contacto.setTelefono(rsCon.getString(5));
                         contacto.setObs(rsCon.getString(6));
                         contacto.setLocalidad(l);
-                        
+
                         //(Opcional) Guardar contacto en la colección del obj Localidad
                         l.addContacto(contacto);
-                        
+
                         //Guardar contacto en la lista del repositorio...
                         contactos.add(contacto);
                     }
@@ -106,6 +106,33 @@ public class ContactoRepo {
             alert.showAndWait();
         }
 
+    }
+
+    public void insertContacto(Contacto contacto) {
+        try {
+            Connection cn = new ConnectionFactory().getConnection();
+
+            String insert = "insert into contactos (ape, nom, dom, tel, obs, cpa) values (?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement ps = cn.prepareStatement(insert);
+            ps.setString(1, contacto.getApellido());
+            ps.setString(2, contacto.getNombre());
+            ps.setString(3, contacto.getDomicilio());
+            ps.setString(4, contacto.getTelefono());
+            ps.setString(5, contacto.getObs());
+            ps.setString(6, contacto.getLocalidad().getCpa());
+            
+            ps.execute();
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Contacto '" + 
+                    contacto.getNombre() + 
+                    " " + contacto.getApellido() + "' guardado.");
+            alert.showAndWait();
+            
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getCause() + "||" + e.getMessage());
+            alert.showAndWait();
+        }
     }
 
     public List<Contacto> getContactos() {

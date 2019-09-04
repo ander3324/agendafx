@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 /**
@@ -11,7 +10,7 @@ package model;
  * @author ander
  */
 public class Contacto {
-    
+
     private int nro;
     private String apellido;
     private String nombre;
@@ -19,7 +18,7 @@ public class Contacto {
     private String telefono;
     private String obs;
     private Localidad localidad;
-    
+
     public int getNro() {
         return nro;
     }
@@ -29,7 +28,7 @@ public class Contacto {
     }
 
     public String getApellido() {
-        return apellido + ", " + nombre;
+        return apellido;
     }
 
     public void setApellido(String apellido) {
@@ -75,9 +74,14 @@ public class Contacto {
     public void setLocalidad(Localidad localidad) {
         this.localidad = localidad;
     }
-    
+
     @Override
     public String toString() {
         return nombre + " " + apellido;
+    }
+
+    //Sólo para columna 'Contacto' de tableview  
+    public String getContacto() {
+        return apellido + ", " + nombre;
     }
 }

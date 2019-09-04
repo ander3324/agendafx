@@ -7,12 +7,14 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import model.Contacto;
@@ -55,6 +57,7 @@ public class frmAgendaController implements Initializable {
     @FXML
     private TableView<Contacto> tbvContactos;
 
+
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
@@ -64,6 +67,7 @@ public class frmAgendaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         cargarContactos();
+       
     }
 
     void cargarContactos() {
@@ -120,6 +124,8 @@ public class frmAgendaController implements Initializable {
     @FXML
     private void btnNuevo_OnAction(ActionEvent event) {
         ventanasUtil.abrirDialogo(btnNuevo.getScene().getWindow(), "/view/frmContacto.fxml", "Nuevo Contacto");
+        tbvContactos.getItems().clear();
+        cargarContactos();
     }
 
     @FXML

@@ -13,9 +13,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import model.Contacto;
 import model.Localidad;
 import model.Provincia;
+import repository.ContactoRepo;
 import repository.LocalidadRepo;
 import repository.ProvinciaRepo;
 
@@ -34,6 +38,18 @@ public class FrmContactoController implements Initializable {
     private Button btnGuardar;
     @FXML
     private Button btnCancelar;
+    @FXML
+    private TextField txfApellido;
+    @FXML
+    private TextField txfNombre;
+    @FXML
+    private TextField txfTelefono;
+    @FXML
+    private TextField txfCalle;
+    @FXML
+    private TextField txfNro;
+    @FXML
+    private ImageView imvContactos;
 
     /**
      * Initializes the controller class.
@@ -60,6 +76,19 @@ public class FrmContactoController implements Initializable {
 
     @FXML
     private void guardar_OnAction(ActionEvent event) {
+        ContactoRepo repo = new ContactoRepo();
+        Contacto c = new Contacto();
+        c.setApellido(txfApellido.getText());
+        c.setNombre(txfNombre.getText());
+        c.setTelefono(txfTelefono.getText());
+        c.setDomicilio(txfCalle.getText() + ", " + txfNro.getText());
+        c.setObs(txaObs.getText());
+        c.setLocalidad(cmbLocalidad.getSelectionModel().getSelectedItem());
+        
+        repo.insertContacto(c);
+        
+        Stage st = (Stage) btnGuardar.getScene().getWindow();
+        st.close();
     }
 
     @FXML

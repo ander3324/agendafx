@@ -5,10 +5,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="335.0" prefWidth="405.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controller.FrmLocalidadesController">
+<AnchorPane id="AnchorPane" prefHeight="335.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrmLocalidadesController">
    <children>
       <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="14.0" prefHeight="363.0" prefWidth="405.0" text="Seleccione la Provincia para filtrar:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
@@ -17,17 +17,17 @@
                   <ComboBox fx:id="cmbProvincias" layoutX="36.0" layoutY="14.0" onAction="#cmbProvincias_OnAction" prefHeight="26.0" prefWidth="342.0" />
                   <TableView fx:id="tbvLocalidades" layoutX="14.0" layoutY="55.0" prefHeight="200.0" prefWidth="385.0">
                     <columns>
-                        <TableColumn prefWidth="90.0" text="Cod. Postal" >
+                        <TableColumn prefWidth="90.0" text="Cod. Postal">
                             <cellValueFactory>
                                 <javafx.scene.control.cell.PropertyValueFactory property="cpa" /> 
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="175.0" text="Localidad" >
+                        <TableColumn prefWidth="175.0" text="Localidad">
                             <cellValueFactory>
                                 <javafx.scene.control.cell.PropertyValueFactory property="localidad" /> 
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn prefWidth="119.0" text="Provincia" >
+                        <TableColumn prefWidth="119.0" text="Provincia">
                             <cellValueFactory>
                                 <javafx.scene.control.cell.PropertyValueFactory property="provincia" /> 
                             </cellValueFactory>

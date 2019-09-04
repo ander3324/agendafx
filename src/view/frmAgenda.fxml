@@ -84,7 +84,7 @@
                   </TableColumn>
                   <TableColumn prefWidth="193.0" text="Contacto" >
                       <cellValueFactory>
-                          <javafx.scene.control.cell.PropertyValueFactory property="apellido" />
+                          <javafx.scene.control.cell.PropertyValueFactory property="contacto" />
                       </cellValueFactory>
                   </TableColumn>
                   <TableColumn prefWidth="181.0" text="Domicilio" >
