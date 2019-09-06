@@ -44,7 +44,12 @@ public class Contacto {
     }
 
     public String getDomicilio() {
+        return domicilio;
+    }
+
+    public String getDireccion() {
         return domicilio + " - " + localidad.getLocalidad() + " / " + localidad.getProvincia().getProvincia();
+
     }
 
     public void setDomicilio(String domicilio) {

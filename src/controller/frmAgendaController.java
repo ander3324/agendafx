@@ -135,6 +135,17 @@ public class frmAgendaController implements Initializable {
 
     @FXML
     private void btnEliminar_OnAction(ActionEvent event) {
+        
+        ContactoRepo repo = new ContactoRepo();
+        repo.deleteContacto(tbvContactos.getSelectionModel().getSelectedItem().getNro());
+        tbvContactos.getItems().clear();
+        cargarContactos();
+        
+    }
+
+    @FXML
+    private void ctxBorrar_OnAction(ActionEvent event) {
+        btnEliminar_OnAction(null);
     }
 
 }

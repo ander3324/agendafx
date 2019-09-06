@@ -134,6 +134,27 @@ public class ContactoRepo {
             alert.showAndWait();
         }
     }
+    
+    public void deleteContacto(int id) {
+        try {
+            Connection cn = new ConnectionFactory().getConnection();
+
+            String wacaballa = "delete from contactos where id = ?";
+
+            PreparedStatement ps = cn.prepareStatement(wacaballa);
+            ps.setInt(1, id);
+            
+            ps.execute();
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Contacto borrado.");
+            alert.showAndWait();
+            
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getCause() 
+                    + "||" + e.getMessage());
+            alert.showAndWait();
+        }
+    }
 
     public List<Contacto> getContactos() {
         return contactos;
